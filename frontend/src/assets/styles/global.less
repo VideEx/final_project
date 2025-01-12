@@ -1,0 +1,186 @@
+@import "variables";
+body {
+  padding: 0;
+  margin: 0;
+
+}
+
+* {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: Lora, sans-serif;
+  font-size: 38px;
+  line-height: 49.4px;
+
+
+  color: @dark-blue;
+  padding-bottom: 40px;
+}
+
+.article-carousel .owl-dots {
+  z-index: 100;
+  position: absolute;
+  bottom: 15px;
+  left: calc(50% - 45px);
+}
+
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  padding: 94px 152px 86px;
+
+  background-color: white;
+}
+
+.dialog-title {
+  max-width: 406px;
+  color:@dark-blue;
+  font-family: Lora, serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 130%;
+  text-align: center;
+  margin-bottom: 20px;
+
+  &.dialog-title-second {
+    max-width: 443px;
+  }
+}
+
+.dialog-title input, &.select {
+  width: 422px;
+  height: 53px;
+
+  border: 2px solid @light-blue;
+  border-radius: 5px;
+  outline: none;
+
+  padding-left: 15px;
+
+  font-family: Montserrat-400, sans-serif;
+  letter-spacing: 2px;
+  font-size: 14px;
+
+  &:focus {
+    border-color: @dark-blue;
+  }
+}
+
+.text-error {
+  color: #672e2e;
+  font-family: Montserrat-400, sans-serif;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 3px;
+}
+
+.button {
+  margin: 0 auto;
+  width: 422px;
+  height: 51px;
+
+  &.dialog-button-second {
+    width: 73px;
+    height: 36px;
+  }
+}
+
+.dialog-input {
+  margin-bottom: 5px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+.dialog-text {
+  color: @dark-text-color;
+  font-family: Montserrat-500, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.dialog-actions {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.dialog-actions button {
+  width: 422px;
+  height: 51px;
+  top: 344px;
+  left: 152px;
+  border-radius: 5px;
+
+  background-color: rgba(112, 159, 220, 1);
+
+  border: none;
+  font-family: Montserrat-400, sans-serif;
+  font-size: 16px;
+
+  color: white;
+}
+
+.custom-checkbox {
+  position: absolute;
+  left: 0;
+  z-index: -1; /* Отправляем input за другие элементы */
+  width: 1rem;
+  height: 1.25rem;
+  opacity: 0; /* Скрываем input */
+}
+
+h3 {
+  color: @dark-blue;
+  font-family: Montserrat-500, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+  margin: 30px 0 10px;
+  padding: 0;
+}
+p, ul {
+  color: @dark-text-color;
+  font-family: Montserrat-400, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 130%;
+  margin: 10px 0;
+  padding: 0;
+}
+//
+//ul {
+//  padding: 10px;
+//  margin-left: 10px;
+//  li::marker {
+//    font-size: 9px;
+//  }
+//}
+
+.article-body-text p {
+  font-family: Montserrat-500, sans-serif;
+  font-size: 14px;
+  line-height: 18.2px;
+}
+.article-body-text p {
+  font-family: Montserrat-400, sans-serif;
+  font-size: 14px;
+  line-height: 18.2px;
+}
+
+.article-subtitle a {
+  text-decoration: none;
+}

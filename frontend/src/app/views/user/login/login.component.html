@@ -1,0 +1,64 @@
+<section class="login">
+
+  <div class="container auth-container">
+
+    <div class="fake-actions">
+      <button class="fake-true">Заполнить правильно</button>
+      <button class="fake-false">Заполнить без пароля</button>
+      <button class="fake-false">Заполнить почту не правильно</button>
+      <button class="fake-false">Заполнить пароль не правильно</button>
+    </div>
+
+    <div class="auth-form" [formGroup]="loginForm">
+      <div class="auth-title">
+        Войти в личный кабинет
+      </div>
+
+
+      <div class="auth-inputs">
+        <div class="dialog-input">
+          <input class="auth-input" type="email" placeholder="Электронная почта"
+                 [ngStyle]="{'border-color': loginForm.get('email')?.invalid
+                  && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+                  ? 'red': ''}"
+                 formControlName="email">
+          <div
+            *ngIf="loginForm.get('email')!.invalid && (loginForm.get('email')!.dirty || loginForm.get('email')?.touched)">
+            <div class="text-error">
+              Пожалуйста, введите свою почту!
+            </div>
+          </div>
+        </div>
+        <div class="dialog-input">
+          <input class="auth-input" type="password" placeholder="Пароль"
+                 [ngStyle]="{'border-color': loginForm.get('password')?.invalid
+                  && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
+                  ? 'red': ''}"
+                 formControlName="password">
+          <div
+            *ngIf="loginForm.get('password')!.invalid && (loginForm.get('password')!.dirty)">
+            <div class="text-error">
+              Пожалуйста, проверьте корректность введенного пароля!
+            </div>
+          </div>
+        </div>
+        <label for="rememberMe">
+          <input type="checkbox" id="rememberMe">
+          Запомнить меня
+        </label>
+      </div>
+
+      <div class="auth-actions">
+        <div class="auth-button">
+          <button type="button" (click)="login()">Войти</button>
+        </div>
+
+        <p>Нет аккаунта? <a routerLink="/signup">Пройдите регистрацию</a></p>
+      </div>
+    </div>
+
+    <div class="auth-img">
+      <img src="assets/img/page/login.png" alt="">
+    </div>
+  </div>
+</section>

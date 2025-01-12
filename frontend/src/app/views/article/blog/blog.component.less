@@ -1,0 +1,102 @@
+@import "../../../../assets/styles/global";
+
+.blog {
+  padding-top: 80px;
+  padding-bottom: 120px;
+
+  .container {
+    .blog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 40px;
+
+      .blog-applied-filters {
+        display: flex;
+        flex-wrap: wrap;
+
+        .blog-applied-filter {
+          box-sizing: border-box;
+          border: 2px solid @light-blue;
+          border-radius: 5px;
+          background: rgb(255, 255, 255);
+          color: @light-blue;
+          font-family: Montserrat-400 sans-serif;
+          font-size: 16px;
+          padding: 8px 20px;
+          display: flex;
+          align-items: center;
+          margin-right: 20px;
+          margin-bottom: 20px;
+
+          a {
+            cursor: pointer;
+            display: flex;
+            margin-left: 9px;
+          }
+        }
+      }
+
+    }
+
+    .blog-items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 40px;
+      column-gap: 25px;
+    }
+
+    .pagination {
+      margin-top: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .pagination-arrow {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.disabled {
+          a svg path {
+            fill: #BEBEBE;
+          }
+        }
+      }
+
+      .pagination-pages {
+        margin-left: 40px;
+        margin-right: 40px;
+        display: flex;
+        align-items: center;
+
+        a.pagination-page {
+          color: @dark-text-color;
+          font-family: Montserrat-400, sans-serif;
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 20px;
+          cursor: pointer;
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &.active {
+            color: @light-blue;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+

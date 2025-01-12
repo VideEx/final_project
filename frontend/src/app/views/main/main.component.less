@@ -1,0 +1,412 @@
+@import "../../../assets/styles/global";
+@import "../../../assets/styles/fonts";
+
+.main {
+  //margin-bottom: 126px;
+}
+
+.container {
+
+}
+
+.main-shares {
+  position: relative;
+
+
+}
+
+.main-shares-arrows {
+  position: absolute;
+  top: calc(50% - 14px);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  z-index: 100;
+
+  .previous-arrow {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .next-arrow {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+}
+
+.main-shares-item {
+  position: relative;
+  padding: 100px 0 86px 80px;
+}
+
+
+.main-shares-item-background {
+  position: absolute;
+  overflow: hidden;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+
+}
+
+
+.main-shares-item-background-circle {
+  width: 1405px;
+  height: 1405px;
+  border-radius: 50%;
+  background-color: @light-blue;
+  position: absolute;
+  top: -148%;
+  left: -56%;
+  z-index: 1;
+}
+
+.main-shares-item-background-image {
+  background-size: cover;
+  background-position: center;
+  width: 750px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.main-shares-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 302px;
+  z-index: 5;
+}
+
+.main-shares-subtitle {
+  color: @light-blue;
+  font-family: Montserrat-600, sans-serif;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 5px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.main-shares-title {
+  font-family: Lora, serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 130%;
+  color: rgb(255, 255, 255);
+  max-width: 610px;
+}
+
+.main-shares-description {
+  margin-top: 20px;
+  color: rgb(255, 255, 255);
+  font-family: Montserrat-400, sans-serif;
+  font-size: 24px;
+  line-height: 130%;
+  max-width: 456px;
+}
+
+.main-shares-action {
+  button.button {
+    width: 163px;
+    height: 51px;
+    top: 351px;
+    left: 80px;
+    padding: 15px 0;
+    border-radius: 5px;
+    background-color: @dark-blue;
+    border: none;
+    font-family: Montserrat-400, sans-serif;
+    font-size: 16px;
+
+    color: white;
+  }
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 68px;
+
+  padding-top: 120px;
+}
+
+.about-title {
+  font-family: Lora-400, sans-serif;
+  font-size: 38px;
+
+  color: @dark-blue;
+
+  padding-bottom: 20px;
+}
+
+.about-desc {
+  font-family: Montserrat-500, sans-serif;
+  font-size: 14px;
+  line-height: 18.2px;
+  color: rgba(30, 26, 43, 1);
+}
+
+.advantages {
+  padding-top: 40px;
+}
+
+.advantages-title {
+  font-family: Lora, sans-serif;
+  font-size: 26px;
+
+  color: @dark-blue;
+
+  padding-bottom: 20px;
+}
+
+.advantages-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px 71px;
+  grid-auto-flow: row;
+  grid-template-areas:
+        "f s"
+        "t f4";
+
+
+}
+
+.first {
+  grid-area: f;
+}
+
+.second {
+  grid-area: s;
+}
+
+.third {
+  grid-area: t;
+}
+
+.fourth {
+  grid-area: f4;
+}
+
+.advantage {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 316px;
+  justify-content: space-between;
+
+}
+
+.advantage-num {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  background-color: @light-blue;
+
+  flex-shrink: 0;
+
+  position: relative;
+
+}
+
+.advantage-num span {
+  position: absolute;
+
+  font-family: Lora, sans-serif;
+  font-size: 50px;
+  line-height: 65px;
+
+
+  top: -20px;
+
+  right: 6px;
+
+  color: @dark-blue;
+
+}
+
+.advantage.first span {
+  right: 11px;
+}
+
+.advantage-desc {
+  font-family: Montserrat-400, sans-serif;
+  font-size: 14px;
+  line-height: 18.2px;
+
+  color: rgba(30, 26, 43, 1);
+}
+
+.advantage-desc span {
+  font-family: Montserrat-500, sans-serif;
+}
+
+.popular-articles {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.reviews {
+  padding-bottom: 120px;
+}
+
+.container {
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
+.reviews-carousel {
+  position: relative;
+
+
+}
+
+.reviews-arrows {
+  display: flex;
+
+
+}
+
+.reviews-arrows a {
+  top: calc(50% - 5px);
+  display: flex;
+  position: absolute;
+  cursor: pointer;
+
+  &.move-backward {
+    left: -41px;
+  }
+
+  &.move-forward {
+    right: -41px;
+  }
+}
+
+.review-item {
+  width: 396px;
+  height: 267px;
+  padding: 30px;
+  box-sizing: border-box;
+  border: 2px solid @light-blue;
+  border-radius: 5px;
+}
+
+.review-item-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  margin-right: 26px;
+}
+
+.review-item-name {
+  color: @light-blue;
+  font-family: Montserrat-600, sans-serif;
+  font-size: 18px;
+}
+
+.review-item-head {
+  display: flex;
+  align-items: center;
+}
+
+.review-item-text {
+  font-family: Montserrat-400, sans-serif;
+  margin-top: 16px;
+  color: @dark-text-color;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.contacts {
+  padding-bottom: 120px;
+
+
+  .container {
+    display: flex;
+  }
+}
+
+
+
+.map {
+  margin-right: 26px;
+}
+
+.contacts-info {
+}
+
+
+.contacts-info-head {
+  color: @light-blue;
+  font-family: Montserrat-500, sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contacts-info-text {
+  color: @dark-text-color;
+  font-family: Montserrat-400, sans-serif;
+  font-size: 14px;
+  line-height: 130%;
+  max-width: 501px;
+  margin-bottom: 20px;
+
+  a {
+    color: @dark-text-color;
+    font-family: Montserrat-400, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+  }
+}
+
+.contacts-info-social {
+  display: flex;
+  a {
+    margin-right: 20px;
+  }
+}
+
+.services, .popular, .reviews, .contacts {
+  padding-top: 120px;
+  padding-bottom: 0;
+}
+
+.popular .container {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.popular-link {
+  padding-top: 40px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.popular-link span {
+  font-family: Montserrat-500, sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+
+}
+
+.popular-link a {
+
+  text-decoration: none;
+  color: @dark-blue;
+}
+
+.contacts {
+  padding-bottom: 40px;
+}

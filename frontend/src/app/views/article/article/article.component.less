@@ -1,0 +1,174 @@
+@import "../../../../assets/styles/global";
+
+.article {
+  padding-top: 80px;
+  padding-bottom: 120px;
+
+}
+
+.article-subtitle {
+  margin-bottom: 60px;
+  font-family: Montserrat-400, sans-serif;
+  font-size: 16px;
+
+  a {
+    color: @light-blue;
+
+    span {
+      color: @light-blue;
+    }
+  }
+
+  span {
+    color: @light-blue;
+    font-family: Montserrat-500, sans-serif;
+    margin-left: 8px;
+  }
+}
+
+
+.article-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .article-head-info {
+    max-width: 607px;
+
+    h2 {
+      margin-bottom: 40px;
+    }
+
+    .article-head-info-description {
+      color: @light-blue;
+      font-family: Montserrat-400, sans-serif;
+      font-size: 20px;
+      line-height: 130%;
+    }
+  }
+
+  .article-head-image {
+    width: 527px;
+    height: 320px;
+    background-size: cover;
+    background-position: top;
+  }
+}
+
+.article-body {
+  padding-top: 60px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+}
+
+
+.article-body-main {
+  max-width: 854px;
+}
+
+
+.article-body-text {
+  max-width: 854px;
+  padding-bottom: 61px;
+}
+
+.article-share-social {
+  display: flex;
+  align-items: center;
+  color: @light-blue;
+  font-family: Montserrat-500, sans-serif;
+  font-size: 14px;
+  margin-bottom: 61px;
+
+  span, a {
+    margin-right: 20px;
+  }
+}
+
+.article-body-related-articles {
+  padding-top: 60px;
+}
+
+.article-body-related-articles-head {
+  color: @light-blue;
+  font-family: Lora, serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.article-body-related-articles-items {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.article-comments-subtitle {
+  font-family: Montserrat-400, sans-serif;
+  font-size: 14px;
+  margin-bottom: 40px;
+
+  a {
+    color: @light-blue;
+  }
+}
+
+.article-comments-write {
+  padding-bottom: 40px;
+
+  textarea {
+    padding: 20px;
+    color: @dark-text-color;
+    font-family: Montserrat-400, sans-serif;
+    font-size: 14px;
+    line-height: 130%;
+    resize: none;
+    margin-bottom: 20px;
+    width: 818px;
+    height: 248px;
+    border: 2px solid @light-blue;
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+
+    &::placeholder {
+      color: rgb(168, 171, 167);
+    }
+  }
+
+  button.button {
+    width: 422px;
+    height: 51px;
+  }
+}
+
+.article-comments-items {
+  padding-top: 20px;
+}
+
+.article-comments-no-items {
+  color: @dark-text-color;
+  font-family: Montserrat-400, sans-serif;
+  font-size: 14px;
+}
+
+
+
+.article-comments-loading {
+  color: rgb(112, 159, 220);
+  font-family: Montserrat-500, sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  span {
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,42 @@
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <img src="assets/img/icon/logo.png" alt="logo">
+    </div>
+    <nav class="menu">
+      <ul>
+        <li>
+          <a routerLink="/" fragment="services" >Услуги</a>
+        </li>
+        <li>
+          <a  routerLink="/" fragment="about" >О нас</a>
+        </li>
+        <li>
+          <a  routerLink="/blog">Статьи</a>
+        </li>
+        <li>
+          <a  routerLink="/" fragment="reviews" >Отзывы</a>
+        </li>
+        <li>
+          <a  routerLink="/" fragment="contacts" >Контакты</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-contacts">
+      <a href="tel:+74993431334">+7 (499) 343-13-34</a>
+    </div>
+
+    <a class="header-login" *ngIf="!isLogged"  routerLink="/login">
+      <img src="assets/img/icon/personal-icon.png" alt="иконка входа">
+      <span>Войти</span>
+    </a>
+    <a class="header-login" *ngIf="isLogged" [matMenuTriggerFor]="menu">
+      <img src="assets/img/icon/personal-icon.png" alt="иконка входа">
+      <span>Привет, {{userName}}!</span>
+    </a>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Выйти</button>
+    </mat-menu>
+  </div>
+</header>

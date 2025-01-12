@@ -1,0 +1,17 @@
+<div class="service-item">
+  <img src="assets/img/services/{{service.image}}" alt="">
+  <p class="service-title">
+    {{service.title}}
+  </p>
+  <p class="service-desc">
+    {{service.description}}
+  </p>
+
+  <div class="service-action">
+    <div class="service-price">
+      От {{service.price}}₽
+    </div>
+
+    <button class="service-button" (click)="openDialog(service.category)">Подробнее</button>
+  </div>
+</div>

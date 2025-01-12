@@ -1,0 +1,83 @@
+<section class="signup">
+  <div class="container auth-container">
+
+
+    <div class="fake-actions">
+      <button class="fake-true">Заполнить правильно</button>
+      <button class="fake-false">Заполнить без пароля</button>
+      <button class="fake-false">Заполнить имя не правильно</button>
+      <button class="fake-false">Заполнить почту не правильно</button>
+      <button class="fake-false">Заполнить пароль не правильно</button>
+    </div>
+
+    <div class="auth-form" [formGroup]="signupForm">
+      <div class="auth-title">
+        Регистрация на сайте
+      </div>
+
+      <div class="auth-inputs">
+        <div class="dialog-input">
+          <input class="auth-input" type="text" placeholder="Ваше имя"
+                 [ngStyle]="{'border-color': signupForm.get('name')?.invalid
+                  && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)
+                  ? 'red': ''}"
+                 formControlName="name">
+          <div
+            *ngIf="signupForm.get('name')!.invalid && (signupForm.get('name')!.dirty || signupForm.get('name')?.touched)">
+            <div class="text-error">
+              Пожалуйста, введите своё имя!
+            </div>
+          </div>
+        </div>
+
+        <div class="dialog-input">
+          <input class="auth-input" type="email" placeholder="Электронная почта"
+                 [ngStyle]="{'border-color': signupForm.get('email')?.invalid
+                  && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)
+                  ? 'red': ''}"
+                 formControlName="email">
+          <div
+            *ngIf="signupForm.get('email')!.invalid && (signupForm.get('email')!.dirty || signupForm.get('email')?.touched)">
+            <div class="text-error">
+              Пожалуйста, введите свою почту!
+            </div>
+          </div>
+        </div>
+
+        <div class="dialog-input">
+          <input class="auth-input" type="password" placeholder="Пароль"
+                 [ngStyle]="{'border-color': signupForm.get('password')?.invalid
+                  && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)
+                  ? 'red': ''}"
+                 formControlName="password">
+          <div
+            *ngIf="signupForm.get('password')!.invalid && (signupForm.get('password')!.dirty || signupForm.get('password')?.touched)">
+            <div class="text-error">
+              Пароль может содержать только латинские буквы и цифры
+            </div>
+          </div>
+        </div>
+
+
+
+        <label for="rememberMe">
+          <input type="checkbox" id="rememberMe" formControlName="agree">
+          <span>Я принимаю <a href="#">условия пользовательского соглашения</a> и даю <a href="#">согласие на
+                            обработку персональных данных</a>.</span>
+        </label>
+      </div>
+
+      <div class="auth-actions">
+        <div class="auth-button">
+          <button type="button" (click)="signup()">Войти</button>
+        </div>
+
+        <p>Нет аккаунта? <a routerLink="/login">Пройдите регистрацию</a></p>
+      </div>
+    </div>
+
+    <div class="auth-img">
+      <img src="assets/img/page/signup.png" alt="">
+    </div>
+  </div>
+</section>

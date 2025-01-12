@@ -1,0 +1,159 @@
+@import "fonts";
+@import "global";
+@import "variables";
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.auth-container {
+  padding: 106px 26px 92px 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+}
+
+.auth-title {
+  font-family: Lora, sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+
+  color: @dark-blue;
+}
+
+.auth-inputs {
+  padding: 40px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.auth-input {
+  width: 422px;
+  height: 53px;
+  padding: 17px 0 17px 20px;
+  border-radius: 3px;
+  border: 2px solid @light-blue;
+
+  outline: none;
+
+  color: rgba(7, 23, 57, 1);
+  font-family: Montserrat-400, sans-serif;
+  font-size: 14px;
+}
+
+.auth-input:focus {
+  border-color: @dark-blue;
+}
+
+.auth-input::placeholder {
+  color: rgba(168, 171, 167, 1);
+  font-family: Montserrat-400, sans-serif;
+  font-size: 14px;
+}
+
+.auth-inputs label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-family: Montserrat-400, sans-serif;
+  font-size: 14px;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 18.2px;
+
+  max-width: 422px;
+}
+
+.auth-inputs label a {
+  font-family: Montserrat-400;
+  font-size: 14px;
+
+  color: @dark-blue;
+}
+
+.auth-button button {
+  width: 422px;
+  height: 51px;
+  padding: 15px 0;
+  border-radius: 5px;
+
+  border: none;
+  background-color: @dark-blue;
+
+  font-family: Montserrat-400;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+}
+
+
+.auth-actions p {
+  font-family: Montserrat-400;
+  font-size: 14px;
+
+  color: rgba(30, 26, 43, 1);
+
+  padding-top: 10px;
+}
+
+.auth-actions p a {
+  font-family: Montserrat-400;
+  font-size: 14px;
+
+  text-decoration: none;
+  color: @dark-blue;
+}
+
+
+.fake-actions {
+  display: flex;
+
+  align-items: center;
+  gap: 20px;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.fake-true {
+
+  max-width: 190px;
+
+  padding: 10px 10px;
+  font-size: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 128, 0, 0.137);
+
+  color: rgba(0, 0, 0, 0.288);
+  border: none;
+
+  cursor: pointer;
+}
+
+
+.fake-false {
+  max-width: 190px;
+
+  font-size: 10px;
+  padding: 10px 10px;
+
+  border-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.219);
+
+  color: rgba(0, 0, 0, 0.288);
+
+  border: none;
+  cursor: pointer;
+}

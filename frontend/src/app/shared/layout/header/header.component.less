@@ -1,0 +1,63 @@
+@import "../../../../assets/styles/global";
+@import "../../../../assets/styles/fonts";
+
+.header-container {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu {
+  color: rgba(7, 23, 57, 1);
+  max-width: 429px;
+
+  display: flex;
+  align-items: center;
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu ul li {
+  list-style-type: none;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  font-family: Montserrat-500, sans-serif;
+  font-size: 16px;
+  text-align: left;
+
+  color: rgba(7, 23, 57, 1);
+}
+
+
+.header-contacts {
+  display: flex;
+  align-items: center;
+}
+
+.header-contacts a {
+  color: @dark-blue;
+  text-decoration: none;
+  font-family: Montserrat-500, sans-serif;
+  font-size: 16px;
+}
+
+.header-login {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-family: Montserrat-500, sans-serif;
+  font-size: 16px;
+
+  &:visited {
+    color: @dark-text-color;
+
+    text-decoration-line: none;
+  }
+}
