@@ -23,7 +23,7 @@ export class LoginComponent {
   };
   ngOnInit(): void {
   };
-  login() {
+  login(): void {
 
     console.log('asdkdakm')
     if (this.loginForm.value.email && this.loginForm.value.password) {

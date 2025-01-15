@@ -20,7 +20,7 @@ export class OrderPopupComponent implements OnInit {
   requestForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(/^[А-ЯЁа-яё '-]+$/)]],
     phone: ['', [Validators.required, Validators.pattern(/^\+\d\d{3}\d{3}\d{4}$/)]],
-    category: 'undefined'
+    category: ['']
   });
   private subscription: Subscription = new Subscription();
 
@@ -35,12 +35,13 @@ export class OrderPopupComponent implements OnInit {
               private categoryService: CategoriesService,
               public dialogRef: MatDialogRef<OrderPopupComponent>,
   ) {
-    console.log(this.data.category)
-    this.requestForm.value.category = this.data.category ? CategoriesUtil.getCategoriesValue(this.data.category) : 'undefined';
-
+    console.log(this.data.category.toLowerCase())
+    let category = this.data.category.toLowerCase();
+    console.log(this.requestForm.value.category)
+    this.requestForm.value.category = category ? CategoriesUtil.getCategoriesValue(category) : CategoriesUtil.getCategoriesValue(category);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.currentState === 1) {
       this.subscription.add(this.categoryService.getCategories().subscribe(data => {
         this.categories = data
@@ -56,7 +57,7 @@ export class OrderPopupComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onClick() {
+  onClick(): void {
     if (this.requestForm.valid && this.requestForm.value.name && this.requestForm.value.phone && this.requestForm.value.category) {
       const service = this.requestForm.value.category === 'undefined' || '' ? '' : this.parsCategoryValue(this.requestForm.value.category);
       this.subscription.add(this.requestService.orderRequest(this.requestForm.value.name, this.requestForm.value.phone, 'order', service)
@@ -81,7 +82,7 @@ export class OrderPopupComponent implements OnInit {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
 }

@@ -15,7 +15,15 @@ export class ArticleCardComponent implements OnDestroy {
   @Input() article!: ArticleType;
   serverStaticPath = environment.serverStaticPath;
   private subscription: Subscription | null = null;
-  constructor(public dialog: MatDialog, private router: Router) { }
+  constructor(public dialog: MatDialog, private router: Router) {
+    this.article = {
+      id: '',
+      title: '',
+      description: '',
+      image: '',
+      category: '',
+    }
+  }
 
   goToArticle(url: string | undefined): void {
     if (url) {
@@ -23,7 +31,7 @@ export class ArticleCardComponent implements OnDestroy {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
 }

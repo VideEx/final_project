@@ -13,10 +13,18 @@ import {ConsultationPopupComponent} from "../../components/consultation-popup/co
 })
 export class FooterComponent {
 
-  @Input() service!: ServiceType;
+  @Input() service: ServiceType;
   private subscription: Subscription = new Subscription();
 
   constructor(public dialog: MatDialog) {
+    this.service = {
+      id: '',
+      title: '',
+      description: '',
+      image: '',
+      category: '',
+      price: ''
+    }
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(ConsultationPopupComponent, {

@@ -25,7 +25,7 @@ export class SignupComponent {
               private _snackBar: MatSnackBar,
               private router: Router) {
   };
-  signup() {
+  signup(): void {
     console.log('gj')
     if (this.signupForm.value.email
       && this.signupForm.value.password

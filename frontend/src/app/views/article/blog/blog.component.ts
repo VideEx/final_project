@@ -60,7 +60,7 @@ export class BlogComponent implements OnInit, OnDestroy {
       }));
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
 
@@ -79,7 +79,7 @@ export class BlogComponent implements OnInit, OnDestroy {
     })
   }
 
-  openPrevPage() {
+  openPrevPage(): void {
     if (this.activeParams.page && this.activeParams.page > 1) {
       this.activeParams.page--;
       this.router.navigate(['/blog'], {
@@ -88,7 +88,7 @@ export class BlogComponent implements OnInit, OnDestroy {
     }
   }
 
-  openNextPage() {
+  openNextPage(): void {
     if (!this.activeParams.page) {
       this.activeParams.page = 1
     }

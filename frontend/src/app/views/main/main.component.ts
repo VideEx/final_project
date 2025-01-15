@@ -153,7 +153,7 @@ export class MainComponent {
       }))
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
 

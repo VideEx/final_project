@@ -8,5 +8,14 @@ import {ReviewType} from "../../../../types/review.type";
   styleUrl: './review-card.component.less'
 })
 export class ReviewCardComponent {
-  @Input() review!: ReviewType;
+  @Input() review: ReviewType;
+
+  constructor() {
+    this.review = {
+      name: '',
+      image: '',
+      text: ''
+    }
+  }
+
 }

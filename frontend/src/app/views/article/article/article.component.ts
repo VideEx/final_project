@@ -107,6 +107,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
             }
             this.commentForm.text = '';
             writeComment.reset();
+            console.log()
             this.updateDataArticle();
           },
           error: (error) => {
@@ -117,7 +118,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
     }
   }
 
-  downloadComments() {
+  downloadComments(): void {
     this.isLoading = true;
     this.subscription.add(this.commentService.getComments(this.commentCountOnPage, this.article.id)
       .subscribe(data => {
@@ -171,12 +172,12 @@ export class ArticleComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateDataArticle() {
+  updateDataArticle(): void {
     this.subscription.add(this.articleService.getArticle(this.article.url)
       .subscribe({
         next: (data) => {
-          // this.commentsOnPage = [data.comments[0], ...this.commentsOnPage]
-          // this.article.comments = data.comments;
+          this.commentsOnPage = [data.comments[0], ...this.commentsOnPage]
+          this.article.comments = data.comments;
           this.article.commentsCount = data.commentsCount;
           this.commentCountOnPage++;
         },
@@ -188,7 +189,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   }
 
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
 }

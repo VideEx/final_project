@@ -20,11 +20,14 @@ export class FilterComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   @HostListener('document:click', ['$event'])
-  click(event: Event) {
-    if (this.open && (event.target as HTMLElement).className.indexOf('catalog-sorting') === -1) {
-      this.open = false;
+  closeMenu(event: Event): void {
+    if (this.open) {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.blog-filtration-head')) {
+        this.open = false;
+      }
     }
-  }
+  };
 
   ngOnInit(): void {
     this.subscription = this.activatedRoute.queryParams.subscribe( params => {
@@ -57,7 +60,7 @@ export class FilterComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription?.unsubscribe()
   }
 

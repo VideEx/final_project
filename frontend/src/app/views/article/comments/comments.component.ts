@@ -17,7 +17,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   standalone: false
 })
 export class CommentsComponent implements OnInit, OnDestroy {
-  @Input() comment!: CommentType;
+  @Input() comment: CommentType;
   @Output() addToReactionEvent: EventEmitter<{ commentId: string, reaction: ReactionEnum | null }> = new EventEmitter<{ commentId: string, reaction: ReactionEnum | null }>();
 
   userIsLoggedIn: boolean;
@@ -27,6 +27,18 @@ export class CommentsComponent implements OnInit, OnDestroy {
 
   constructor(private authService: AuthService, private commentsService: CommentsService, private _snackBar: MatSnackBar,) {
     this.userIsLoggedIn = this.authService.getIsLoggedIn();
+
+    this.comment = {
+      id: "",
+      text: '',
+      date: '',
+      likesCount: 0,
+      dislikesCount: 0,
+      user: {
+        id: '',
+        name: ''
+      }
+    }
   }
 
   ngOnInit(): void {
@@ -50,7 +62,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
 

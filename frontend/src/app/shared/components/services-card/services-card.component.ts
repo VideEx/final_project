@@ -11,18 +11,25 @@ import {Subscription} from "rxjs";
   styleUrl: './services-card.component.less'
 })
 export class ServicesCardComponent {
-  @Input() service!: ServiceType;
+  @Input() service: ServiceType;
   private subscription: Subscription = new Subscription();
 
   constructor(public dialog: MatDialog) {
+    this.service = {
+      id: '',
+      title: '',
+      description: '',
+      image: '',
+      category: '',
+      price: ''
+    }
   }
   openDialog(category?: string): void {
-    console.log(category)
+    console.log(category?.toLowerCase())
     const dialogRef = this.dialog.open(OrderPopupComponent, {
       data: {category}
     });
     this.subscription.add(dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
       if (result) {
         this.dialog.open(OrderPopupComponent, {
           data: {}

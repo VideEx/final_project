@@ -43,7 +43,7 @@ export class ConsultationPopupComponent {
     this.dialogRef.close();
   }
 
-  onClick() {
+  onClick(): void {
     if (this.requestForm.valid && this.requestForm.value.name && this.requestForm.value.phone) {
       this.subscription.add(this.requestService.orderRequest(this.requestForm.value.name, this.requestForm.value.phone, this.type)
         .subscribe({
@@ -66,7 +66,7 @@ export class ConsultationPopupComponent {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }
 }
