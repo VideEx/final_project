@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Subscription} from "rxjs";
 import {CategoryType} from "../../../../types/category.type";
@@ -33,12 +33,15 @@ export class OrderPopupComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: { category: "" },
               private _snackBar: MatSnackBar,
               private categoryService: CategoriesService,
-              public dialogRef: MatDialogRef<OrderPopupComponent>,
+              public dialogRef: MatDialogRef<OrderPopupComponent>
   ) {
-    console.log(this.data.category.toLowerCase())
-    let category = this.data.category.toLowerCase();
-    console.log(this.requestForm.value.category)
-    this.requestForm.value.category = category ? CategoriesUtil.getCategoriesValue(category) : CategoriesUtil.getCategoriesValue(category);
+
+    if (this.data.category) {
+      let category: string = this.data.category;
+      this.requestForm.patchValue({ category: CategoriesUtil.getCategoriesValue(category.toLowerCase())});
+    } else if (!this.data.category) {
+      this.requestForm.patchValue({ category: 'undefined'});
+    }
   }
 
   ngOnInit(): void {

@@ -25,7 +25,7 @@ export class ServicesCardComponent {
     }
   }
   openDialog(category?: string): void {
-    console.log(category?.toLowerCase())
+    console.log()
     const dialogRef = this.dialog.open(OrderPopupComponent, {
       data: {category}
     });

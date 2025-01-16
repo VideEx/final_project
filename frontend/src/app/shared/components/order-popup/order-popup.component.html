@@ -3,7 +3,7 @@
   заявку!
 </div>
 <form *ngIf="currentState===1" [formGroup]="requestForm">
-  <select class="dialog-input select" required formControlName="category" name="category" >
+  <select class="dialog-input select" required formControlName="category" name="category">
     <option ngDefaultControl  disabled [value]="'undefined'">выберите услугу</option>
     <option *ngFor="let category of categories" [value]="category.url">{{category.name}}</option>
   </select>

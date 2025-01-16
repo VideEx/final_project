@@ -7,9 +7,10 @@ import {ArticlesService} from "../../shared/services/articles.service";
 import {OwlOptions} from "ngx-owl-carousel-o";
 import {OrderPopupComponent} from "../../shared/components/order-popup/order-popup.component";
 import {ConsultationPopupComponent} from "../../shared/components/consultation-popup/consultation-popup.component";
+
 @Component({
   selector: 'app-main',
-  standalone:false,
+  standalone: false,
   templateUrl: './main.component.html',
   styleUrl: './main.component.less'
 })
@@ -64,7 +65,7 @@ export class MainComponent {
     nav: false
   };
   customOptionsRev: OwlOptions = {
-    autoWidth:true,
+    autoWidth: true,
     loop: true,
     mouseDrag: true,
     touchDrag: true,
@@ -146,6 +147,7 @@ export class MainComponent {
   constructor(private articlesService: ArticlesService, public dialog: MatDialog) {
 
   }
+
   ngOnInit(): void {
     this.subscription.add(this.articlesService.getBestArticles()
       .subscribe((data: ArticleType[]) => {
@@ -153,18 +155,14 @@ export class MainComponent {
       }))
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-  }
-
   openPopup(): void {
-    const dialogRef = this.dialog.open(ConsultationPopupComponent, {
+    const dialogRef = this.dialog.open(OrderPopupComponent, {
       data: {}
     });
     this.subscription.add(dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
       if (result) {
-        this.dialog.open(ConsultationPopupComponent, {
+        this.dialog.open(OrderPopupComponent, {
           data: {}
         });
       }
