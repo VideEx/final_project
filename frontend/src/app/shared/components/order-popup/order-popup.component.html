@@ -1,43 +1,92 @@
-<div class="dialog-title"  *ngIf="currentState===1">Заявка на услугу</div>
-<div class="dialog-title dialog-title-second" *ngIf="currentState===2">Спасибо за вашу
-  заявку!
-</div>
-<form *ngIf="currentState===1" [formGroup]="requestForm">
-  <select class="dialog-input select" required formControlName="category" name="category">
-    <option ngDefaultControl  disabled [value]="'undefined'">выберите услугу</option>
-    <option *ngFor="let category of categories" [value]="category.url">{{category.name}}</option>
-  </select>
-
-  <div class="dialog-input">
-    <input type="text" class="input" name="name" placeholder="Ваше имя" required formControlName="name"
-           [ngStyle]="{'border-color': requestForm.get('name')!.invalid && (requestForm.get('name')!.dirty || requestForm.get('name')?.touched) ? 'red': ''}">
-    <div *ngIf="requestForm.get('name')!.invalid && (requestForm.get('name')!.dirty || requestForm.get('name')?.touched)">
-      <div class="text-error">
-        Пожалуйста, введите свое имя!
-      </div>
-    </div>
+<div  [ngSwitch]="currentState">
+  <div class="dialog-title" *ngSwitchCase="1">Заявка на услугу</div>
+  <div class="dialog-title dialog-title-second" *ngSwitchCase="2">Спасибо за вашу
+    заявку!
   </div>
-  <div class="dialog-input">
-    <input type="tel" class="input" name="phone" placeholder="Ваш номер телефона" formControlName="phone"
-           [ngStyle]="{'border-color': requestForm.get('phone')!.invalid && (requestForm.get('phone')!.dirty || requestForm.get('phone')?.touched) ? 'red': ''}"
-           required>
-    <div *ngIf="requestForm.get('phone')!.invalid && (requestForm.get('phone')!.dirty || requestForm.get('phone')?.touched)">
-      <div class="text-error">
-        Пожалуйста, введите номер телефона в формате +79999999999
+  <form *ngSwitchCase="1" [formGroup]="requestForm">
+    <select class="dialog-input select" required formControlName="category" name="category">
+      <option ngDefaultControl disabled [value]="'undefined'">выберите услугу</option>
+      <option *ngFor="let category of categories" [value]="category.url">{{category.name}}</option>
+    </select>
+
+    <div class="dialog-input">
+      <input type="text" class="input" name="name" placeholder="Ваше имя" required formControlName="name"
+             [ngStyle]="{'border-color': requestForm.get('name')!.invalid && (requestForm.get('name')!.dirty || requestForm.get('name')?.touched) ? 'red': ''}">
+      <div
+        *ngIf="requestForm.get('name')!.invalid && (requestForm.get('name')!.dirty || requestForm.get('name')?.touched)">
+        <div class="text-error">
+          Пожалуйста, введите свое имя!
+        </div>
       </div>
     </div>
+    <div class="dialog-input">
+      <input type="tel" class="input" name="phone" placeholder="Ваш номер телефона" formControlName="phone"
+             [ngStyle]="{'border-color': requestForm.get('phone')!.invalid && (requestForm.get('phone')!.dirty || requestForm.get('phone')?.touched) ? 'red': ''}"
+             required>
+      <div
+        *ngIf="requestForm.get('phone')!.invalid && (requestForm.get('phone')!.dirty || requestForm.get('phone')?.touched)">
+        <div class="text-error">
+          Пожалуйста, введите номер телефона в формате +79999999999
+        </div>
+      </div>
+    </div>
+    <div class="dialog-actions">
+      <button class="button"
+              (click)="onClick()" type="submit">Оставить заявку
+      </button>
+    </div>
+  </form>
+  <div class="dialog-text" *ngSwitchCase="2">
+    Мы свяжемся с вами при первой же возможности.
   </div>
   <div class="dialog-actions">
-    <button class="button"
-            (click)="onClick()" type="submit">Оставить заявку
+    <button
+      class="button dialog-button-second" (click)="onNoClick()" *ngSwitchCase="2">Окей
     </button>
   </div>
-</form>
-<div class="dialog-text" *ngIf="currentState===2">
-  Мы свяжемся с вами при первой же возможности.
 </div>
-<div class="dialog-actions">
-  <button
-    class="button dialog-button-second" (click)="onNoClick()" *ngIf="currentState===2">Окей
-  </button>
-</div>
+
+<!--<div class="dialog-title"  *ngIf="currentState===1">Заявка на услугу</div>-->
+<!--<div class="dialog-title dialog-title-second" *ngIf="currentState===2">Спасибо за вашу-->
+<!--  заявку!-->
+<!--</div>-->
+<!--<form *ngIf="currentState===1" [formGroup]="requestForm">-->
+<!--  <select class="dialog-input select" required formControlName="category" name="category">-->
+<!--    <option ngDefaultControl  disabled [value]="'undefined'">выберите услугу</option>-->
+<!--    <option *ngFor="let category of categories" [value]="category.url">{{category.name}}</option>-->
+<!--  </select>-->
+
+<!--  <div class="dialog-input">-->
+<!--    <input type="text" class="input" name="name" placeholder="Ваше имя" required formControlName="name"-->
+<!--           [ngStyle]="{'border-color': requestForm.get('name')!.invalid && (requestForm.get('name')!.dirty || requestForm.get('name')?.touched) ? 'red': ''}">-->
+<!--    <div *ngIf="requestForm.get('name')!.invalid && (requestForm.get('name')!.dirty || requestForm.get('name')?.touched)">-->
+<!--      <div class="text-error">-->
+<!--        Пожалуйста, введите свое имя!-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="dialog-input">-->
+<!--    <input type="tel" class="input" name="phone" placeholder="Ваш номер телефона" formControlName="phone"-->
+<!--           [ngStyle]="{'border-color': requestForm.get('phone')!.invalid && (requestForm.get('phone')!.dirty || requestForm.get('phone')?.touched) ? 'red': ''}"-->
+<!--           required>-->
+<!--    <div *ngIf="requestForm.get('phone')!.invalid && (requestForm.get('phone')!.dirty || requestForm.get('phone')?.touched)">-->
+<!--      <div class="text-error">-->
+<!--        Пожалуйста, введите номер телефона в формате +79999999999-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="dialog-actions">-->
+<!--    <button class="button"-->
+<!--            (click)="onClick()" type="submit">Оставить заявку-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</form>-->
+<!--<div class="dialog-text" *ngIf="currentState===2">-->
+<!--  Мы свяжемся с вами при первой же возможности.-->
+<!--</div>-->
+<!--<div class="dialog-actions">-->
+<!--  <button-->
+<!--    class="button dialog-button-second" (click)="onNoClick()" *ngIf="currentState===2">Окей-->
+<!--  </button>-->
+<!--</div>-->
+

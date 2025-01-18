@@ -25,7 +25,7 @@
                 <div *ngIf="slide.description" class="main-shares-description">{{slide.description}}</div>
               </div>
               <div class="main-shares-action">
-                <button class="button" (click)="openPopup()">Подробнее</button>
+                <button class="button" (click)="openPopup(slide.category)">Подробнее</button>
               </div>
             </div>
           </div>

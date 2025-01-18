@@ -24,8 +24,7 @@ export class OrderPopupComponent implements OnInit {
   });
   private subscription: Subscription = new Subscription();
 
-  public currentState: number = 1;
-
+  currentState: number = 1;
   categories: CategoryType[] = [];
 
   constructor(private fb: FormBuilder,
@@ -35,7 +34,6 @@ export class OrderPopupComponent implements OnInit {
               private categoryService: CategoriesService,
               public dialogRef: MatDialogRef<OrderPopupComponent>
   ) {
-
     if (this.data.category) {
       let category: string = this.data.category;
       this.requestForm.patchValue({ category: CategoriesUtil.getCategoriesValue(category.toLowerCase())});
@@ -70,8 +68,7 @@ export class OrderPopupComponent implements OnInit {
               this._snackBar.open(response.message)
             }
             if (!response.error) {
-              // this.dialogRef.close('second');
-              this.currentState = 2;
+                this.changeState(2)
             }
           },
           error: (errorResponse: HttpErrorResponse) => {
@@ -83,6 +80,10 @@ export class OrderPopupComponent implements OnInit {
           }
         }));
     }
+  }
+
+  changeState(state: number) {
+    this.currentState = state;
   }
 
   ngOnDestroy(): void {

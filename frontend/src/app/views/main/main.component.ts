@@ -24,18 +24,21 @@ export class MainComponent {
       subtitle: 'Предложение месяца',
       title: 'Продвижение в Instagram для вашего бизнеса <span class="selection">-15%</span>!',
       image: 'banner1.png',
+      category: 'таргет'
     },
     {
       subtitle: 'Акция',
       title: 'Нужен грамотный <span class="selection">копирайтер</span>?',
       image: 'banner2.png',
       description: 'Весь декабрь у нас действует акция на работу копирайтера.',
+      category: 'копирайтинг'
     },
     {
       subtitle: 'Новость дня',
       title: '<span class="selection">6 место</span> в ТОП-10 SMM-агенств Москвы!',
       image: 'banner3.png',
       description: 'Мы благодарим каждого, кто голосовал за нас!',
+      category: 'smm'
     },
   ];
 
@@ -155,12 +158,11 @@ export class MainComponent {
       }))
   }
 
-  openPopup(): void {
+  openPopup(category?: string): void {
     const dialogRef = this.dialog.open(OrderPopupComponent, {
-      data: {}
+      data: {category}
     });
     this.subscription.add(dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
       if (result) {
         this.dialog.open(OrderPopupComponent, {
           data: {}
